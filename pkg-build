@@ -1,0 +1,13 @@
+pkgname=bzipmini
+pkgver=1.0
+pkgrel=1
+pkgdesc="Simple LZ77 folder archiver"
+arch=('any')
+depends=('python')
+
+source=("cli.py" "lz77.py")
+
+package() {
+    install -Dm755 cli.py "$pkgdir/usr/bin/bzp"
+    install -Dm644 lz77.py "$pkgdir/usr/lib/bzipmini/lz77.py"
+}
