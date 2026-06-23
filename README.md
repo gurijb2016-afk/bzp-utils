@@ -20,7 +20,7 @@ A lightweight Python-based compression and archive tool using a custom LZ77 impl
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourname/bzp-utils.git
+git clone https://github.com/gurijb2016-afk/bzp-utils.git
 cd bzp-utils
 Windows install:
 install.bat
