@@ -1,14 +1,5 @@
-*.tar
-*.tar.*
-*.jar
-*.exe
-*.msi
-*.deb
-*.zip
-*.tgz
-*.log
-*.log.*
-*.sig
-
-pkg/
-src/
+```gitignore id="p3"
+__pycache__/
+*.bzp
+*.pyc
+.DS_Store
