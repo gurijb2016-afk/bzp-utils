@@ -1,0 +1,63 @@
+WINDOW = 1024
+LOOKAHEAD = 16
+MAX_SCAN = 64
+
+
+def compress(data: bytes):
+    i = 0
+    out = []
+
+    while i < len(data):
+        best_len = 0
+        best_dist = 0
+
+        start = max(0, i - WINDOW)
+        search_start = max(start, i - MAX_SCAN)
+
+        # FAST SEARCH (limitált scan)
+        for j in range(search_start, i):
+            l = 0
+
+            while (
+                i + l < len(data)
+                and l < LOOKAHEAD
+                and data[j + l] == data[i + l]
+            ):
+                l += 1
+
+                # EARLY BREAK
+                if l == LOOKAHEAD:
+                    break
+
+            if l > best_len:
+                best_len = l
+                best_dist = i - j
+
+                # gyors stop ha jó match
+                if best_len == LOOKAHEAD:
+                    break
+
+        if best_len >= 4:
+            out.append(("M", best_dist, best_len))
+            i += best_len
+        else:
+            out.append(("L", data[i]))
+            i += 1
+
+    return out
+
+
+def decompress(tokens):
+    out = bytearray()
+
+    for t in tokens:
+        if t[0] == "L":
+            out.append(t[1])
+        else:
+            _, dist, length = t
+            start = len(out) - dist
+
+            for i in range(length):
+                out.append(out[start + i])
+
+    return bytes(out)
