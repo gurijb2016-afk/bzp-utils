@@ -1,9 +1,7 @@
-📄 README.md (bzipmini)
-# bzipmini
 
-A simple Python-based LZ77 + folder archiver.
+# bzp utils
 
-This project is a lightweight experimental compression tool similar to ZIP, but custom-built for learning purposes.
+A lightweight Python-based compression and archive tool using a custom LZ77 implementation.
 
 ---
 
@@ -12,8 +10,8 @@ This project is a lightweight experimental compression tool similar to ZIP, but 
 - LZ77 compression algorithm
 - File + folder support (PRO version)
 - Custom `.bzp` archive format
-- Simple CLI usage (`bzp a / x`)
-- Windows install support (install.bat)
+- Simple CLI tool (`bzp a / x`)
+- Windows install support (`install.bat`)
 
 ---
 
@@ -22,14 +20,12 @@ This project is a lightweight experimental compression tool similar to ZIP, but 
 Clone the repository:
 
 ```bash
-git clone https://github.com/yourname/bzipmini.git
-cd bzipmini
-
-Run installer (Windows):
-
+git clone https://github.com/yourname/bzp-utils.git
+cd bzp-utils
+Windows install:
 install.bat
 
-After installation, restart terminal.
+Then restart terminal.
 
 📦 Usage
 Compress file or folder:
@@ -38,25 +34,25 @@ Extract archive:
 bzp x output.bzp output_folder
 🧠 How it works
 
-bzipmini uses a simplified LZ77 algorithm:
+bzp utils uses a simplified LZ77 algorithm:
 
-Searches repeated patterns in data
-Replaces them with (distance, length) references
-Stores raw + compressed tokens in .bzp format
+Detects repeating patterns in files
+Replaces them with distance/length references
+Stores data in a custom .bzp binary format
 ⚠️ Notes
-This is a learning project, not production-grade compression
-Compression ratio is lower than ZIP / 7zip
-Best used for education and experimentation
-📁 Project Structure
-bzipmini/
+This is a learning / experimental project
+Not optimized like ZIP or 7zip
+Focused on simplicity and understanding compression
+📁 Project structure
+bzp-utils/
  ├── cli.py
  ├── lz77.py
  ├── install.bat
  ├── uninstall.bat
- └── README.md
+ ├── README.md
 🔥 Future ideas
-Huffman encoding support
+Huffman coding integration
 Better compression ratio
-GUI version
+GUI interface
 Cross-platform installer
-Faster LZ77 implementation
+Multi-threaded compression
