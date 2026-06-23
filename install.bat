@@ -2,7 +2,7 @@
 setlocal
 
 echo ============================
-echo   BZIPMINI INSTALLER
+echo   bzp utils installer
 echo ============================
 
 set INSTALL_DIR=%USERPROFILE%\bzp_bin
